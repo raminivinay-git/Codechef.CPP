@@ -1,0 +1,43 @@
+#include <iostream>
+
+using namespace std;
+
+int a[100005];
+
+void solve() {
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    
+    for (int i = 0; i < n - 1; ++i) {
+        if (i % 2 == 0) {
+            if (a[i] > a[i + 1]) {
+                int temp = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
+            }
+        } else {
+            if (a[i] < a[i + 1]) {
+                int temp = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
+            }
+        }
+    }
+    
+    for (int i = 0; i < n; ++i) {
+        cout << a[i] << " ";
+    }
+    cout << "\n";
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
